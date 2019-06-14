@@ -12,9 +12,14 @@ class EmailParser #class accepts a string of unformatted emails
   
   
 def parse
-  csv_emails.split.collect do |address|
+  #scans emails to separate by comma and pulls out and returns unique emails only 
+  csv_emails.split.collect do |address|  #the collect method will iterate and return an array
     address.split(',')
   end
   .flatten.uniq
  end
 end
+
+emails1 = "candiceparker2008@yahoo.com, per@er.org, Zappa@sugar.net, per@er.org" 
+parser1 = EmailParser.new(emails1)
+parser1.parse #returns array of unique emails in an array comma separated
